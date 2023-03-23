@@ -1,0 +1,33 @@
+post_dir = /home/karen/mnt/odin/hmpv/postfusion/cartesian  
+post_ala_folder = cartesian_alanine1,cartesian_alanine2,cartesian_alanine3,cartesian_alanine4,cartesian_alanine5
+pdb_post = /home/karen/Dropbox/projects_UGA/group/projects/Protein_Design/karen/RSV/paper/MSD_protocol/example/hmpv_post_aligned.pdb
+post_monomer_ch = AB 
+pre_dir= /home/karen/mnt/odin/hmpv/prefusion/cartesian
+pre_ala_folder = cartesian_alanine1,cartesian_alanine2,cartesian_alanine3,cartesian_alanine4,cartesian_alanine5
+pdb_pre = /home/karen/Dropbox/projects_UGA/group/projects/Protein_Design/karen/RSV/paper/MSD_protocol/example/hmpv_pre_aligned.pdb
+pre_monomer_ch = AB 
+alignment = /home/karen/Dropbox/projects_UGA/group/projects/Protein_Design/karen/RSV/paper/MSD_protocol/example/hmpv_aligned.fasta
+post_name_alignment= post
+pre_name_alignment= pre
+fusion_peptide = 73-84
+
+
+############# Arguments description
+## post_dir = Directory containing the folder with ddg results for postfusion
+## post_ala_folder = Comma-separated list of folder(s) name(s) with ddg results for postfusion. The folder(s) must be in the post_dir
+## pdb_post = File name or directory of postfusion pdb
+## post_monomer_ch = Chain(s) ID of one postfusion protomer
+## pre_dir= Directory containing the folder with ddg results for prefusion
+## pre_ala_folder = Comma-separated list of folder(s) name(s) with ddg results for prefusion. The folder(s) must be in the pre_dir
+## pdb_pre = File name or directory of prefusion pdb 
+## pre_monomer_ch = Chain(s) ID of one prefusion protomer
+## alignment = File name or directory of sequence alignment between prefusion and postfusion (the sequences should contain ONLY amino acids found in the PDB structure (monomer sequence). FASTA format
+## post_name_alignment = Name of postfusion protein in alignment file
+## pre_name_alignment = Name of prefusion protein in alignment file
+## fusion_peptide = Positions (range) corresponding to the fusion peptide (prefusion structure). Make sure these residue positions are unique, i.e. they do not point out to other parts of the protein that are not the fusion peptide.
+#############
+
+
+
+
+
