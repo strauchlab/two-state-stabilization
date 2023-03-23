@@ -1,8 +1,8 @@
-pdb_post = /home/karen/Dropbox/projects_UGA/group/projects/Protein_Design/karen/RSV/paper/MSD_protocol/example/hmpv_post_aligned.pdb
+pdb_post = $PATH/hmpv_post_aligned.pdb
 post_monomer_ch = AB 
-pdb_pre = /home/karen/Dropbox/projects_UGA/group/projects/Protein_Design/karen/RSV/paper/MSD_protocol/example/hmpv_pre_aligned.pdb
+pdb_pre = $PATH/hmpv_pre_aligned.pdb
 pre_monomer_ch = AB 
-alignment = /home/karen/Dropbox/projects_UGA/group/projects/Protein_Design/karen/RSV/paper/MSD_protocol/example/hmpv_aligned.fasta
+alignment = $PATH/hmpv_aligned.fasta
 post_name_alignment= post
 pre_name_alignment= pre
 flanking = 16
