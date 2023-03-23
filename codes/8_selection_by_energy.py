@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-@author: karen
+@author: Karen J. Gonzalez
 """
 import os
 import pandas as pd
