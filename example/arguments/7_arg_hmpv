@@ -1,4 +1,4 @@
-results_dir = /home/karen/mnt/odin/hmpv/prefusion/cartesian/pross_all_aa_on_Alanines/pross_shared_regions_and_fusionPeptide_noSurface/pross_v2/v2_2/fastDesign
+results_dir = $PATH/prefusion/cartesian/pross_all_aa_on_Alanines/pross_shared_regions_and_fusionPeptide_noSurface/pross_v2/v2_2/fastDesign
 results_folder = repetition1,repetition2,repetition3,repetition4,repetition5,repetition6,repetition7,repetition8,repetition9,repetition10,repetition11,repetition12,repetition13,repetition14,repetition15
 resfile_pre = /home/karen/Dropbox/projects_UGA/group/projects/Protein_Design/karen/RSV/paper/MSD_protocol/combinatorial_design/resfile_pre_all_v2_2_COMPARISON
 control_dir = /home/karen/mnt/odin/hmpv/prefusion/cartesian/pross_all_aa_on_Alanines/pross_shared_regions_and_fusionPeptide_noSurface/pross_v2/v2_2/fastDesign/control/5wb0_BIOMT_expanded_ignorechain_ABC_INPUT_0001_AB_0007_ABC_A_0001.pdb
