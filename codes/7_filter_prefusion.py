@@ -3,7 +3,7 @@
 """
 Created on Mon Nov 18 12:34:51 2019
 
-@author: karen
+@author: Karen J. Gonzalez
 """
 
 import os
