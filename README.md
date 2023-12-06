@@ -86,14 +86,14 @@ Alanine scanning must be carried out on every residue of pre- and postfusion str
 ### 3. Comparison prefusion-vs-postfusion alanine ddg results and selection of target positions for all-amino acid scanning: 
 
 	-3.1_comparison_alanines.py [-h] arg_file 
-This script identifies target positions to redesign based on stabilizing the prefusion over the postfusion state. It takes as input an external file containing all arguments needed for running the script. *An example of this external file is found at /example/3.comparison_ala_scan/3.1/3.1_arg_hmpv*. 
+This script identifies target positions to redesign based on stabilizing the prefusion over the postfusion state. It takes as input an external file containing all arguments needed for running the script. An example of this external file is found at */example/3.comparison_ala_scan/3.1/3.1_arg_hmpv*. 
 
-As output, it creates two folders, one for each state (prefusion and postfusion), containing the mut_files required for all-amino acid scanning at the identified positions. Note that mut_files are written in rosetta numbering.
+As output, the script creates two folders, one for each state (prefusion and postfusion), containing the mut_files required for all-amino acid scanning at the identified positions. Note that mut_files are written in rosetta numbering.
 
 	-3.2_mobile_regions.py [-h] arg_file
-If alanine scanning cannot identify significant designable spots, all-amino acid scanning can be carried out on all regions undergoing drastic conformational changes. This script identifies those mobile regions. It takes as input an external file containing all arguments needed for running the script. *An example of this external file is found at /example/3.comparison_ala_scan/3.2/3.2_arg_hmpv*. 
+If alanine scanning cannot identify significant designable spots, all-amino acid scanning can be carried out on all regions undergoing drastic conformational changes. This script identifies those mobile regions. It takes as input an external file containing all arguments needed for running the script. An example of this external file is found at */example/3.comparison_ala_scan/3.2/3.2_arg_hmpv*. 
 
-As output, it creates two folders, one for each state (prefusion and postfusion), containing the mut_files to perform all-amino acid scanning at highly mobile regions. 
+As output, the script creates two folders, one for each state (prefusion and postfusion), containing the mut_files to perform all-amino acid scanning at highly mobile regions. 
 
 > [!NOTE]
 > Input PDBs should be aligned prior to running the script.
@@ -106,9 +106,10 @@ Use the same script as alanine scanning (2.2_alanine_scanning.sh). We recommend 
 ### 5. Comparison of prefusion-vs-postfusion all-amino acid scanning ddg results and selection of positions for combinatorial design:
 	
 	-5_analysis_all_aa_substitutions.py [-h] arg_file
-This script selects positions and substitutions for combinatorial design based on favorable ddG results for the prefusion state and neutral or destabilizing results for the postfusion state. The script takes as input an external file containing all arguments needed for running it. *An example of this external file is found at /example/5.comparison_all_amino_acids_scan/alanine-scanning-based_approach/5_arg_hmpv*.
+This script selects positions and substitutions for combinatorial design based on favorable ddG results for the prefusion state and neutral or destabilizing results for the postfusion state. The script takes as input an external file containing all arguments needed for running it. An example of this external file is found at */example/5.comparison_all_amino_acids_scan/alanine-scanning-based_approach/5_arg_hmpv*.
 
 The script outputs a "combinatorial_design" folder. This folder contains the PSSM-like file for prefusion and postfusion, a resfile file for redesigning the prefusion structure, and a control resfile (prefusion).  
+
 Run this script independently for alanine-scanning-based and mobile-regions-based approaches.
 
 ### 6. Combinatorial design on prefusion state. 
@@ -124,17 +125,22 @@ Independent jobs can be run in parallel to increase the number of designs while 
 
 ### 7. Filter out designed sequences that are repeated and identify sequences improving the prefusion energy compared to the control (wild-type sequence)
 
-	-7_filter_prefusion.py
+	-7_filter_prefusion.py [-h] arg_file
 
 After finding sequences improving the prefusion energy, these sequences must be modeled in the postfusion state to determine which conformation is more favored by the designed sequence. Therefore, this script identifies the prefusion candidate sequences and generates individual resfiles to model the sequence in the postfusion state. A control postfusion resfile is also output to perform the control experiment, as explained in step (6). The resfiles are split into several folders within the "postfusion_designs" folder. The PSSM files to model the postfusion structures were obtained in step (5).
 
-All pdbs with improved prefusion energy are transferred to a "selection_pre_E" folder, created within the prefusion results folder.
+The script takes as input an external file containing all arguments needed for running it. An example of this external file is found at */example/7.filter_prefusion/alanine-scanning-based_approach/7_arg_hmpv*
+
+> [!NOTE]
+> All pdbs with improved prefusion energy are transferred to a "selection_pre_E" folder, created within the prefusion results folder.
 
 ### 8. Identify sequences where prefusion improved and postfusion got worse. 
 
-	-8_selection_by_energy.py
+	-8_selection_by_energy.py [-h] arg_file
 
-This script identifies sequences improving prefusion energy but not favoring the postfusion structure. To summarize the results, the script generates two types of files, one containing all mutations present on each leading design and CSV files with per-residue energy differences between the pre- and postfusion structures at each mutated position. Negative scores indicate that the substitution is more stable than the native sequence in the specified structure. Therefore, look for mutations with negative scores in the prefusion state and positive scores in the postfusion state. All numbering refers to rosetta numbering for the first protomer of the prefusion structure (if it is not specified otherwise).
+This script identifies sequences improving prefusion energy but not favoring the postfusion structure. The script takes as input an external file containing all arguments needed for running it. An example of this external file is found at */example/8.selection/8_arg_hmpv*
+
+To summarize the results, the script generates two types of files, one containing all mutations present on each leading design and CSV files with per-residue energy differences between the pre- and postfusion structures at each mutated position. Negative scores indicate that the substitution is more stable than the native sequence in the specified structure. Therefore, look for mutations with negative scores in the prefusion state and positive scores in the postfusion state. All numbering refers to rosetta numbering for the first protomer of the prefusion structure (if it is not specified otherwise).
 
 Since not all mutations in a sequence contribute equally to stabilizing the prefusion structure or destabilizing postfusion, selecting only mutations with the most significant effects is recommended. This selection can be guided by the output energetic differences, analysis of formation or disruption of hydrogen bonds and salt bridges (which can be done with the function "energy_terms" available in this script), or by manual inspection of each mutation.  
 
