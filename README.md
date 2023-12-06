@@ -106,8 +106,9 @@ Use the same script as alanine scanning (2.2_alanine_scanning.sh). We recommend 
 ### 5. Comparison of prefusion-vs-postfusion all-amino acid scanning ddg results and selection of positions for combinatorial design:
 	
 	-5_analysis_all_aa_substitutions.py [-h] arg_file
-This script selects positions and substitutions for combinatorial design based on favorable ddG results for the prefusion state and neutral or destabilizing results for the postfusion state. The script takes as input an external file containing all arguments needed for running it, and it outputs a "combinatorial_design" folder. This folder contains the PSSM-like file for prefusion and postfusion, a resfile file for redesigning the prefusion structure, and a control resfile (prefusion).  
+This script selects positions and substitutions for combinatorial design based on favorable ddG results for the prefusion state and neutral or destabilizing results for the postfusion state. The script takes as input an external file containing all arguments needed for running it. *An example of this external file is found at /example/5.comparison_all_amino_acids_scan/alanine-scanning-based_approach/5_arg_hmpv*.
 
+The script outputs a "combinatorial_design" folder. This folder contains the PSSM-like file for prefusion and postfusion, a resfile file for redesigning the prefusion structure, and a control resfile (prefusion).  
 Run this script independently for alanine-scanning-based and mobile-regions-based approaches.
 
 ### 6. Combinatorial design on prefusion state. 
