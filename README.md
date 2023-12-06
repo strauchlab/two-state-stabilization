@@ -104,7 +104,7 @@ This script is run independently for the alanine-scanning-based and mobile-regio
 	-6.1_flags
 	-6.2_combinatorial_design.sh
 	
-These scripts need to be executed twice, once for generating the designed sequences and another time for running a control experiment. Since the selection process is done based on energetic differences, a control experiment is required to compare against a structure that has undergone the same relaxation as the designed sequence (but without sequence changes). For the control experiment the resfile used is called "resfile_control_pre". The PSSM file is the same as for the designed sequences.
+These scripts must be executed twice, once to generate the designed sequences and another time to run a control experiment. The control experiment is used as the reference energy since the selection process is based on energetic differences. This control will undergo the same relaxation process as the designed sequence but without sequence changes. The control resfile is called "resfile_control_pre". The PSSM file would be the same as for the designed sequences.
 
 Independent jobs can be run in parallel to increase the number of designs while reducing the waiting time. Remember to save the results in different folders to avoid overwriting previous results.
 
@@ -113,8 +113,9 @@ Independent jobs can be run in parallel to increase the number of designs while 
 
 	-7_filter_prefusion.py
 
-After finding sequences improving the prefusion energy, these sequences need to be modeled in the postfusion state to determine which conformation is more favored by the designed sequence. Therefore, this script first identifies the candidate sequences and then generates several folders with individual resfiles to model the corresponding sequence in the postfusion state. Additionally, a control postfusion resfile is generated to perform the control experiment as explained on step 6. These folders are found in folder called "postfusion_designs"
-All pdbs with improved prefusion energy are transferred to a folder called "selection_pre_E" created inside the prefusion results folder.
+After finding sequences improving the prefusion energy, these sequences must be modeled in the postfusion state to determine which conformation is more favored by the designed sequence. Therefore, this script first identifies the candidate sequences and then generates individual resfiles to model the corresponding sequence in the postfusion state. A control postfusion resfile is also generated to perform the control experiment, as explained in step (6). The resfiles are split into several folders within the "postfusion_designs" folder. The PSSM files to model the postfusion structures were generated in step (5).  
+
+All pdbs with improved prefusion energy are transferred to a "selection_pre_E" folder, created within the prefusion results folder.
 
 ### 8. Identify sequences where prefusion improved and postfusion got worse. 
 
