@@ -1,6 +1,29 @@
 # Two-state-stabilization
-Rosetta version: 2020.10.post.dev+12.master.c7b9c3e c7b9c3e4aeb1febab211d63da2914b119622e69b
+## Requirements:
 
+(a) Rosetta version: 2020.10.post.dev+12.master.c7b9c3e c7b9c3e4aeb1febab211d63da2914b119622e69b
+
+Instructions on how to install Rosetta can be found here: https://new.rosettacommons.org/demos/latest/tutorials/install_build/install_build
+
+(b) PyRosetta-4 2019 [Rosetta PyRosetta4.conda.linux.CentOS.python37.Release 2019.47+release.3d995b15922374726493453159734beedd7e28be 2019-11-20T17:52:20]
+
+Instructions on how to install PyRosetta can be found here: https://www.pyrosetta.org/downloads
+
+(c) Python3.7
+
+(d) Python packages: 
+ os
+ pandas 
+ numpy
+ subprocess
+ argparse
+ pyrosetta 
+ rosetta
+ statistics
+ math
+ re
+
+> **NOTE:** All scripts were tested in Ubuntu 18.04.5 LTS
 
 ## Step by step scripts
 --------------------- 
