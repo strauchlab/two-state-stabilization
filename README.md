@@ -73,7 +73,7 @@ Scripts to perform alanine scanning:
 
 	Write mut_files:
 	-2.2_mut_file_alanine.py [-h] pdb ch 
-The -2.2_mut_file_alanine.py script takes as input the pdb to be analyzed and the chain(s) ID of one protomer. **An example of the command line to run the script is found at /example/2.alanine_scanning/prefusion/scanning/2.2_arg_hmpv*. 
+The -2.2_mut_file_alanine.py script takes as input the pdb to be analyzed and the chain(s) ID of one protomer.*An example of the command line to run the script is found at /example/2.alanine_scanning/prefusion/scanning/2.2_arg_hmpv*. 
 
 As output, it creates a folder with the mut_files needed for alanine scanning. Note that mut_files are written in rosetta numbering.  
 
@@ -86,10 +86,14 @@ Alanine scanning must be carried out on every residue of pre- and postfusion str
 ### 3. Comparison prefusion-vs-postfusion alanine ddg results and selection of target positions for all-amino acid scanning: 
 
 	-3.1_comparison_alanines.py [-h] arg_file 
-This script identifies target positions to redesign based on stabilizing the prefusion over the postfusion state. It takes as input an external file containing all arguments needed for running the script. As output, it creates two folders, one for each state (prefusion and postfusion), containing the mut_files required for all-amino acid scanning at the identified positions. Note that mut_files are written in rosetta numbering.
+This script identifies target positions to redesign based on stabilizing the prefusion over the postfusion state. It takes as input an external file containing all arguments needed for running the script. *An example of this external file is found at /example/3.comparison_ala_scan/3.1/3.1_arg_hmpv*. 
+
+As output, it creates two folders, one for each state (prefusion and postfusion), containing the mut_files required for all-amino acid scanning at the identified positions. Note that mut_files are written in rosetta numbering.
 
 	-3.2_mobile_regions.py [-h] arg_file
-If alanine scanning cannot identify significant designable spots, all-amino acid scanning can be carried out on all regions undergoing drastic conformational changes. This script identifies those mobile regions. It takes as input an external file containing all arguments needed for running the script. As output, it creates two folders, one for each state (prefusion and postfusion), containing the mut_files to perform all-amino acid scanning at highly mobile regions. 
+If alanine scanning cannot identify significant designable spots, all-amino acid scanning can be carried out on all regions undergoing drastic conformational changes. This script identifies those mobile regions. It takes as input an external file containing all arguments needed for running the script. *An example of this external file is found at /example/3.comparison_ala_scan/3.2/3.2_arg_hmpv*. 
+
+As output, it creates two folders, one for each state (prefusion and postfusion), containing the mut_files to perform all-amino acid scanning at highly mobile regions. 
 
 > [!NOTE]
 > Input PDBs should be aligned prior to running the script.
