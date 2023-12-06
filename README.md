@@ -41,14 +41,16 @@ Scripts used for SARS-CoV-2 S:
 	-1.2.3_run_second_RD.sh
 
 Symmetry definition files are generated using the command line: "perl $Rosetta/main/source/src/apps/public/symmetry/make_symmdef_file.pl -m NCS -a A -i B -p INPUT.pdb > symmetry.symm"  
-Before using the symmetry file, it needs to be modified as described at https://faculty.washington.edu/dimaio/files/rosetta_density_tutorial_aug18.pdf
+More information about the generation and used of symmetry files can be found at https://faculty.washington.edu/dimaio/files/rosetta_density_tutorial_aug18.pdf  (**Example 2B: Symmetric refinement into cryoEM density*)	
+
+Upon finishing the relaxation process, choose the best structure based on Rosetta energy, Molprobity scores, and agreement with density data. This structure will be the input of the step (2).
 
 ### 2. Alanine scanning with standard “Cartesian ddg”:
 
 Protocol as described at https://www.rosettacommons.org/docs/latest/cartesian-ddG:
 
-> **IMPORTANT:** If the input PDB has segments where the sequence is discontinuos within the same protomer, each segment must be labeled with a different chain ID. This is because the cartesian ddg application can generate artificial bonds for disconnected regions. 
-In addition, make sure the residue numbering for each protomer starts from 1 (i.e., 1,2,3..,lenght of protomer), independently of the chain ID. This is because all our analysis are done with the rosetta numbering corresponding to the first monomer. 
+> **IMPORTANT:** If the input PDB has segments where the sequence is discontinuous within the same protomer, each segment must be labeled with a different chain ID. The cartesian ddg application can generate artificial bonds for disconnected regions.  
+In addition, make sure the residue numbering for each protomer starts from 1 (i.e., 1,2,3.., length of protomer), independently of the chain ID. All our analyses are done with the rosetta numbering corresponding to the first monomer. 
 Example:    
 
 					      Protomer 1
@@ -68,32 +70,33 @@ Scripts to perform alanine scanning:
 
 	Write mut_files:
 	-2.2_mut_file_alanine.py [-h] pdb ch 
-This script takes as input the pdb to be analyzed and the chain(s) ID of one protomer. As output, it creates a folder with the mut_files needed to carry out alanine scanning. Note that mut_files are written in rosetta numbering. 
+This script takes as input the pdb to be analyzed and the chain(s) ID of one protomer. As output, it creates a folder with the mut_files needed for alanine scanning. Note that mut_files are written in rosetta numbering.  
 
 	Alanine scanning execution:
 	-2.3_alanine_scanning.sh
 
-Alanine scanning needs to be carried out on every residue of both pre- and postfusion structures. To ensure a robust analysis, we recommend performing the alanine scanning in at least two independent runs. On step 3 the results are combined and outliers are filtered out. 
+Alanine scanning must be carried out on every residue of pre- and postfusion structures. We recommend performing the alanine scanning in at least two independent runs to ensure a robust analysis. In step 3, the results are combined, and outliers are filtered out.  
 
 
-### 3. Comparison prefusion vs postfusion alanine ddg results and selection of target positions for all-amino acids scanning: 
+### 3. Comparison prefusion-vs-postfusion alanine ddg results and selection of target positions for all-amino acid scanning: 
 
 	-3.1_comparison_alanines.py [-h] arg_file 
-This script identifies target positions to redesign based on stabilization of the prefusion state over the postfusion state. It takes as input an external file containing all arguments needed for running the script. As output, it creates two folders, one for each state (prefusion and postfusion), containing the mut_files required for all-amino acids scanning at the identified positions. Note that mut_files are written in rosetta numbering. 
+This script identifies target positions to redesign based on stabilizing the prefusion over the postfusion state. It takes as input an external file containing all arguments needed for running the script. As output, it creates two folders, one for each state (prefusion and postfusion), containing the mut_files required for all-amino acid scanning at the identified positions. Note that mut_files are written in rosetta numbering.
 
-	-3.2_movable_regions.py [-h] arg_file
-If alanine scanning is not enough to identify significant designable spots, all- amino acids scanning can be carried out on all regions undergoing drastic conformational changes. This script identifies those movable regions. It takes as input an external file containing all arguments needed for running the script. As output, it creates two folders, one for each state (prefusion and postfusion), containing the mut_files to perform all-amino acids scanning at highly movable regions. NOTE: Input PDBs should be aligned prior to running the script.
-
-
-### 4. Perform all-amino acids substitutions with the mut_files generated in step 3. 
-The script to perform the substitutions is the same as the alanine scanning (-2.2_alanine_scanning.sh). To ensure a robust analysis, we recommend performing the all-amino acids substitutions in at least two independent runs. On step 5 the results are combined and outliers are filtered out. 
+	-3.2_mobile_regions.py [-h] arg_file
+If alanine scanning cannot identify significant designable spots, all-amino acid scanning can be carried out on all regions undergoing drastic conformational changes. This script identifies those mobile regions. It takes as input an external file containing all arguments needed for running the script. As output, it creates two folders, one for each state (prefusion and postfusion), containing the mut_files to perform all-amino acid scanning at highly mobile regions. NOTE: Input PDBs should be aligned prior to running the script.
 
 
-### 5. Comparison of prefusion vs postfusion all-amino acids scanning ddg results and selection of positions for combinatorial design:
+### 4. Perform all-amino acid substitutions with the mut_files generated in step 3. 
+The script to perform the substitutions is the same as the alanine scanning (-2.2_alanine_scanning.sh). We recommend performing the all-amino acid substitutions in at least two independent runs to ensure a robust analysis. In step 5, the results are combined, and outliers are filtered out.
+
+
+### 5. Comparison of prefusion-vs-postfusion all-amino acid scanning ddg results and selection of positions for combinatorial design:
 	
 	-5_analysis_all_aa_substitutions.py [-h] arg_file
-This script selects the positions and the substitutions to be combined based on favorable ddg results for the prefusion state and neutral or destabilizing results for the postfusion state. The scripts takes as input an external file containing all arguments needed for running it, and it outputs a folder called "combinatorial_design". This folder contains the PSSM-like file for prefusion and postfusion, a resfile file for redesigning the prefusion structure, and a control resfile (prefusion).
+This script selects the positions and the substitutions to be combined based on favorable ddg results for the prefusion state and neutral or destabilizing results for the postfusion state. The script takes as input an external file containing all arguments needed for running it, and it outputs a folder called "combinatorial_design". This folder contains the PSSM-like file for prefusion and postfusion, a resfile file for redesigning the prefusion structure, and a control resfile (prefusion).  
 
+This script is run independently for the alanine-scanning-based and mobile-regions-based approaches.
 
 ### 6. Combinatorial design on prefusion state. 
 
