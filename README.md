@@ -2,9 +2,9 @@
 ## Requirements:
 
 1. Rosetta version: 2020.10.post.dev+12.master.c7b9c3e c7b9c3e4aeb1febab211d63da2914b119622e69b  
-   Instructions on how to install Rosetta can be found here: https://new.rosettacommons.org/demos/latest/tutorials/install_build/install_build
+   Instructions on how to install Rosetta can be found at https://new.rosettacommons.org/demos/latest/tutorials/install_build/install_build
 3. PyRosetta-4 2019 [Rosetta PyRosetta4.conda.linux.CentOS.python37.Release 2019.47+release.3d995b15922374726493453159734beedd7e28be 2019-11-20T17:52:20]  
-   Instructions on how to install PyRosetta can be found here: https://www.pyrosetta.org/downloads
+   Instructions on how to install PyRosetta can be found at https://www.pyrosetta.org/downloads
 5. Python3.7
 6. Python packages: 
 	- os
@@ -121,7 +121,7 @@ All pdbs with improved prefusion energy are transferred to a "selection_pre_E" f
 
 	-8_selection_by_energy.py
 
-This script identifies which sequences improving the prefusion energy do not favor the postfusion structure. These sequences would be the leading candidates. To summarize the results, this script generates two types of files, one containing all the mutations present on each leading design and another set of csv files with per-residue energy differences between the pre- and postfusion structures at each mutated position ( negative scores indicate that the substitution is more stable than the native sequence in the specified structure. Therefore, we are looking for mutations with negative scores in the prefusion state and positive scores in the postfusion state). All numbering refers to rosetta numbering for the first protomer of the prefusion structure (if it is not specified otherwise).
+This script identifies which sequences improving the prefusion energy do not favor the postfusion structure. These sequences would be the leading candidates. To summarize the results, the script generates two types of files, one containing all the mutations present on each leading design and another set of csv files with per-residue energy differences between the pre- and postfusion structures at each mutated position ( negative scores indicate that the substitution is more stable than the native sequence in the specified structure. Therefore, we are looking for mutations with negative scores in the prefusion state and positive scores in the postfusion state). All numbering refers to rosetta numbering for the first protomer of the prefusion structure (if it is not specified otherwise).
 Since not all mutations in a sequence contribute equally to stabilizing the prefusion structure or destabilizing postfusion, selecting only mutations with the most significant effects is recommended. This selection can be guided by the output energetic differences, analysis of formation or disruption of hydrogen bonds and salt bridges (which can be done with the function "energy_terms" available in this script), or by manual inspection of each mutation.  
 
 After selecting a few mutations, we recommend repeating the design process using only the selected positions (steps 6 to 8) to verify whether the selected mutations stabilize the prefusion structure over postfusion.
