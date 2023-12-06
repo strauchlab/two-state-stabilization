@@ -2,9 +2,9 @@
 ## Requirements:
 
 1. Rosetta version: 2020.10.post.dev+12.master.c7b9c3e c7b9c3e4aeb1febab211d63da2914b119622e69b  
-   Instructions on how to install Rosetta can be found at https://new.rosettacommons.org/demos/latest/tutorials/install_build/install_build
+   Instructions on how to install Rosetta can be found [here](https://new.rosettacommons.org/demos/latest/tutorials/install_build/install_build).
 3. PyRosetta-4 2019 [Rosetta PyRosetta4.conda.linux.CentOS.python37.Release 2019.47+release.3d995b15922374726493453159734beedd7e28be 2019-11-20T17:52:20]  
-   Instructions on how to install PyRosetta can be found at https://www.pyrosetta.org/downloads
+   Instructions on how to install PyRosetta can be found [here](https://www.pyrosetta.org/downloads).
 5. Python3.7
 6. Python packages: 
 	- os
@@ -41,13 +41,14 @@ Scripts used for SARS-CoV-2 S:
 	-1.2.3_run_second_RD.sh
 
 Symmetry definition files are generated using the command line: "perl $Rosetta/main/source/src/apps/public/symmetry/make_symmdef_file.pl -m NCS -a A -i B -p INPUT.pdb > symmetry.symm"  
-More information about the generation and used of symmetry files can be found at https://faculty.washington.edu/dimaio/files/rosetta_density_tutorial_aug18.pdf  (**Example 2B: Symmetric refinement into cryoEM density*)	
 
-Upon finishing the relaxation process, choose the best structure based on Rosetta energy, Molprobity scores, and agreement with density data. This structure will be the input of the step (2).
+Refer to [this tutorial](https://faculty.washington.edu/dimaio/files/rosetta_density_tutorial_aug18.pdf) (Example 2B: Symmetric refinement into cryoEM density) for more information on symmetry files.
+
+Once the relaxation process is complete, select the best structure based on Rosetta energy, Molprobity scores, and agreement with density data. This chosen structure will serve as the input for step (2).
 
 ### 2. Alanine scanning with standard “Cartesian ddg”:
 
-Protocol as described at https://www.rosettacommons.org/docs/latest/cartesian-ddG:
+Follow [this protocol](https://www.rosettacommons.org/docs/latest/cartesian-ddG) to execute the cartesian ddg application. 
 
 > **IMPORTANT:** If the input PDB has segments where the sequence is discontinuous within the same protomer, each segment must be labeled with a different chain ID. The cartesian ddg application can generate artificial bonds for disconnected regions.  
 In addition, make sure the residue numbering for each protomer starts from 1 (i.e., 1,2,3.., length of protomer), independently of the chain ID. All our analyses are done with the rosetta numbering corresponding to the first monomer. 
@@ -84,19 +85,21 @@ Alanine scanning must be carried out on every residue of pre- and postfusion str
 This script identifies target positions to redesign based on stabilizing the prefusion over the postfusion state. It takes as input an external file containing all arguments needed for running the script. As output, it creates two folders, one for each state (prefusion and postfusion), containing the mut_files required for all-amino acid scanning at the identified positions. Note that mut_files are written in rosetta numbering.
 
 	-3.2_mobile_regions.py [-h] arg_file
-If alanine scanning cannot identify significant designable spots, all-amino acid scanning can be carried out on all regions undergoing drastic conformational changes. This script identifies those mobile regions. It takes as input an external file containing all arguments needed for running the script. As output, it creates two folders, one for each state (prefusion and postfusion), containing the mut_files to perform all-amino acid scanning at highly mobile regions. NOTE: Input PDBs should be aligned prior to running the script.
+If alanine scanning cannot identify significant designable spots, all-amino acid scanning can be carried out on all regions undergoing drastic conformational changes. This script identifies those mobile regions. It takes as input an external file containing all arguments needed for running the script. As output, it creates two folders, one for each state (prefusion and postfusion), containing the mut_files to perform all-amino acid scanning at highly mobile regions. 
+
+> **NOTE:** Input PDBs should be aligned prior to running the script.
 
 
 ### 4. Perform all-amino acid substitutions with the mut_files generated in step 3. 
-The script to perform the substitutions is the same as the alanine scanning (-2.2_alanine_scanning.sh). We recommend performing the all-amino acid substitutions in at least two independent runs to ensure a robust analysis. In step 5, the results are combined, and outliers are filtered out.
+Use the same script as alanine scanning (2.2_alanine_scanning.sh). We recommend performing the all-amino acid substitutions in at least two independent runs to ensure a robust analysis. In step 5, the results are combined, and outliers are filtered out.
 
 
 ### 5. Comparison of prefusion-vs-postfusion all-amino acid scanning ddg results and selection of positions for combinatorial design:
 	
 	-5_analysis_all_aa_substitutions.py [-h] arg_file
-This script selects the positions and the substitutions to be combined based on favorable ddg results for the prefusion state and neutral or destabilizing results for the postfusion state. The script takes as input an external file containing all arguments needed for running it, and it outputs a folder called "combinatorial_design". This folder contains the PSSM-like file for prefusion and postfusion, a resfile file for redesigning the prefusion structure, and a control resfile (prefusion).  
+This script selects positions and substitutions for combinatorial design based on favorable ddG results for the prefusion state and neutral or destabilizing results for the postfusion state. The script takes as input an external file containing all arguments needed for running it, and it outputs a "combinatorial_design" folder. This folder contains the PSSM-like file for prefusion and postfusion, a resfile file for redesigning the prefusion structure, and a control resfile (prefusion).  
 
-This script is run independently for the alanine-scanning-based and mobile-regions-based approaches.
+Run this script independently for alanine-scanning-based and mobile-regions-based approaches.
 
 ### 6. Combinatorial design on prefusion state. 
 
@@ -104,16 +107,16 @@ This script is run independently for the alanine-scanning-based and mobile-regio
 	-6.1_flags
 	-6.2_combinatorial_design.sh
 	
-These scripts must be executed twice, once to generate the designed sequences and another time to run a control experiment. The control experiment is used as the reference energy since the selection process is based on energetic differences. This control will undergo the same relaxation process as the designed sequence but without sequence changes. The control resfile is called "resfile_control_pre". The PSSM file would be the same as for the designed sequences.
+These scripts must be executed twice - once to generate the designed sequences and once to run a control experiment without sequence design. The control experiment is used to define the reference energy as the selection process is based on energetic differences. The control resfile is called "resfile_control_pre", and the PSSM file would be the same as for the designed sequences.
 
-Independent jobs can be run in parallel to increase the number of designs while reducing the waiting time. Remember to save the results in different folders to avoid overwriting previous results.
+Independent jobs can be run in parallel to increase the number of designs while reducing the waiting time. Remember to save the results in different folders to avoid overwriting issues.
 
 
 ### 7. Filter out designed sequences that are repeated and identify sequences improving the prefusion energy compared to the control (wild-type sequence)
 
 	-7_filter_prefusion.py
 
-After finding sequences improving the prefusion energy, these sequences must be modeled in the postfusion state to determine which conformation is more favored by the designed sequence. Therefore, this script identifies the candidate sequences and generates individual resfiles to model the corresponding sequence in the postfusion state. A control postfusion resfile is also generated to perform the control experiment, as explained in step (6). The resfiles are split into several folders within the "postfusion_designs" folder. The PSSM files to model the postfusion structures were generated in step (5).
+After finding sequences improving the prefusion energy, these sequences must be modeled in the postfusion state to determine which conformation is more favored by the designed sequence. Therefore, this script identifies the prefusion candidate sequences and generates individual resfiles to model the sequence in the postfusion state. A control postfusion resfile is also output to perform the control experiment, as explained in step (6). The resfiles are split into several folders within the "postfusion_designs" folder. The PSSM files to model the postfusion structures were obtained in step (5).
 
 All pdbs with improved prefusion energy are transferred to a "selection_pre_E" folder, created within the prefusion results folder.
 
@@ -121,7 +124,8 @@ All pdbs with improved prefusion energy are transferred to a "selection_pre_E" f
 
 	-8_selection_by_energy.py
 
-This script identifies which sequences improving the prefusion energy do not favor the postfusion structure. These sequences would be the leading candidates. To summarize the results, the script generates two types of files, one containing all the mutations present on each leading design and another set of csv files with per-residue energy differences between the pre- and postfusion structures at each mutated position ( negative scores indicate that the substitution is more stable than the native sequence in the specified structure. Therefore, we are looking for mutations with negative scores in the prefusion state and positive scores in the postfusion state). All numbering refers to rosetta numbering for the first protomer of the prefusion structure (if it is not specified otherwise).
+This script identifies sequences improving prefusion energy but not favoring the postfusion structure. To summarize the results, the script generates two types of files, one containing all mutations present on each leading design and CSV files with per-residue energy differences between the pre- and postfusion structures at each mutated position. Negative scores indicate that the substitution is more stable than the native sequence in the specified structure. Therefore, look for mutations with negative scores in the prefusion state and positive scores in the postfusion state. All numbering refers to rosetta numbering for the first protomer of the prefusion structure (if it is not specified otherwise).
+
 Since not all mutations in a sequence contribute equally to stabilizing the prefusion structure or destabilizing postfusion, selecting only mutations with the most significant effects is recommended. This selection can be guided by the output energetic differences, analysis of formation or disruption of hydrogen bonds and salt bridges (which can be done with the function "energy_terms" available in this script), or by manual inspection of each mutation.  
 
 After selecting a few mutations, we recommend repeating the design process using only the selected positions (steps 6 to 8) to verify whether the selected mutations stabilize the prefusion structure over postfusion.
