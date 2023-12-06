@@ -1,33 +1,28 @@
 # Two-state-stabilization
 ## Requirements:
 
-(a) Rosetta version: 2020.10.post.dev+12.master.c7b9c3e c7b9c3e4aeb1febab211d63da2914b119622e69b
-
-Instructions on how to install Rosetta can be found here: https://new.rosettacommons.org/demos/latest/tutorials/install_build/install_build
-
-(b) PyRosetta-4 2019 [Rosetta PyRosetta4.conda.linux.CentOS.python37.Release 2019.47+release.3d995b15922374726493453159734beedd7e28be 2019-11-20T17:52:20]
-
-Instructions on how to install PyRosetta can be found here: https://www.pyrosetta.org/downloads
-
-(c) Python3.7
-
-(d) Python packages: 
- os
- pandas 
- numpy
- subprocess
- argparse
- pyrosetta 
- rosetta
- statistics
- math
- re
+1. Rosetta version: 2020.10.post.dev+12.master.c7b9c3e c7b9c3e4aeb1febab211d63da2914b119622e69b  
+   Instructions on how to install Rosetta can be found here: https://new.rosettacommons.org/demos/latest/tutorials/install_build/install_build
+3. PyRosetta-4 2019 [Rosetta PyRosetta4.conda.linux.CentOS.python37.Release 2019.47+release.3d995b15922374726493453159734beedd7e28be 2019-11-20T17:52:20]  
+   Instructions on how to install PyRosetta can be found here: https://www.pyrosetta.org/downloads
+5. Python3.7
+6. Python packages: 
+	- os
+ 	- pandas 
+ 	- numpy
+ 	- subprocess
+ 	- argparse
+ 	- pyrosetta 
+ 	- rosetta
+ 	- statistics
+ 	- math
+ 	- re
 
 > **NOTE:** All scripts were tested in Ubuntu 18.04.5 LTS
 
-## Step by step scripts
+## Step-by-step scripts
 --------------------- 
-To avoid unexpected results, the input pdbs need to be cleaned before starting the analysis. For this, use the script $Rosetta/tools/protein_tools/scripts/clean_pdb.py
+To avoid unexpected results, the input pdbs must be cleaned before starting the analysis. For this, use the script $Rosetta/tools/protein_tools/scripts/clean_pdb.py
 
 ### 1. Structural relaxation of both pre- and postfusion structures guided by density data: 
 
@@ -45,7 +40,7 @@ Scripts used for SARS-CoV-2 S:
 	-1.2.2_second_relax_density.xml
 	-1.2.3_run_second_RD.sh
 
-Symmetry definition files are generated using the command line: "perl $Rosetta/main/source/src/apps/public/symmetry/make_symmdef_file.pl -m NCS -a A -i B -p INPUT.pdb > symmetry.symm"
+Symmetry definition files are generated using the command line: "perl $Rosetta/main/source/src/apps/public/symmetry/make_symmdef_file.pl -m NCS -a A -i B -p INPUT.pdb > symmetry.symm"  
 Before using the symmetry file, it needs to be modified as described at https://faculty.washington.edu/dimaio/files/rosetta_density_tutorial_aug18.pdf
 
 ### 2. Alanine scanning with standard “Cartesian ddg”:
