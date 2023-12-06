@@ -18,7 +18,8 @@
  	- math
  	- re
 
-> **NOTE:** All scripts were tested in Ubuntu 18.04.5 LTS
+> [!NOTE]
+> All scripts were tested in Ubuntu 18.04.5 LTS
 
 ## Step-by-step scripts
 --------------------- 
@@ -50,7 +51,8 @@ Once the relaxation process is complete, select the best structure based on Rose
 
 Follow [this protocol](https://www.rosettacommons.org/docs/latest/cartesian-ddG) to execute the cartesian ddg application. 
 
-> **IMPORTANT:** If the input PDB has segments where the sequence is discontinuous within the same protomer, each segment must be labeled with a different chain ID. The cartesian ddg application can generate artificial bonds for disconnected regions.  
+> [!IMPORTANT]
+> If the input PDB has segments where the sequence is discontinuous within the same protomer, each segment must be labeled with a different chain ID. The cartesian ddg application can generate artificial bonds for disconnected regions.  
 In addition, make sure the residue numbering for each protomer starts from 1 (i.e., 1,2,3.., length of protomer), independently of the chain ID. All our analyses are done with the rosetta numbering corresponding to the first monomer. 
 Example:    
 
@@ -87,7 +89,8 @@ This script identifies target positions to redesign based on stabilizing the pre
 	-3.2_mobile_regions.py [-h] arg_file
 If alanine scanning cannot identify significant designable spots, all-amino acid scanning can be carried out on all regions undergoing drastic conformational changes. This script identifies those mobile regions. It takes as input an external file containing all arguments needed for running the script. As output, it creates two folders, one for each state (prefusion and postfusion), containing the mut_files to perform all-amino acid scanning at highly mobile regions. 
 
-> **NOTE:** Input PDBs should be aligned prior to running the script.
+> [!NOTE]
+> Input PDBs should be aligned prior to running the script.
 
 
 ### 4. Perform all-amino acid substitutions with the mut_files generated in step 3. 
