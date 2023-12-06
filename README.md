@@ -73,7 +73,9 @@ Scripts to perform alanine scanning:
 
 	Write mut_files:
 	-2.2_mut_file_alanine.py [-h] pdb ch 
-This script takes as input the pdb to be analyzed and the chain(s) ID of one protomer. As output, it creates a folder with the mut_files needed for alanine scanning. Note that mut_files are written in rosetta numbering.  
+The -2.2_mut_file_alanine.py script takes as input the pdb to be analyzed and the chain(s) ID of one protomer. **An example of the command line to run the script is found at /example/2.alanine_scanning/prefusion/scanning/2.2_arg_hmpv*. 
+
+As output, it creates a folder with the mut_files needed for alanine scanning. Note that mut_files are written in rosetta numbering.  
 
 	Alanine scanning execution:
 	-2.3_alanine_scanning.sh
