@@ -45,7 +45,7 @@ Symmetry definition files are generated using the command line: "perl $Rosetta/m
 
 Refer to [this tutorial](https://faculty.washington.edu/dimaio/files/rosetta_density_tutorial_aug18.pdf) (Example 2B: Symmetric refinement into cryoEM density) for more information on symmetry files.
 
-Once the relaxation process is complete, select the best structure based on Rosetta energy, Molprobity scores, and agreement with density data. This chosen structure will serve as the input for step (2).
+Once the relaxation process is completed, select the best structure based on Rosetta energy, Molprobity scores, and agreement with density data. This chosen structure will serve as the input for step (2).
 
 ### 2. Alanine scanning with standard “Cartesian ddg”:
 
