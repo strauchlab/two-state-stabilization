@@ -103,7 +103,7 @@ As output, the script creates two folders, one for each state (prefusion and pos
 
 
 ### 4. Perform all-amino acid substitutions with the mut_files generated in step 3. 
-Use the same script as alanine scanning (2.3_alanine_scanning.sh). We recommend performing the all-amino acid substitutions in at least two independent runs to ensure a robust analysis. In step 5, the results are combined, and outliers are filtered out.
+Perform all-amino acid substitutions using the same script as alanine scanning (2.3_alanine_scanning.sh). We recommend performing the all-amino acid substitutions in at least two independent runs to ensure a robust analysis. In step 5, the results are combined, and outliers are filtered out.
 
 
 ### 5. Comparison of prefusion-vs-postfusion all-amino acid scanning ddg results and selection of positions for combinatorial design:
