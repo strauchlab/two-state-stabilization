@@ -106,7 +106,7 @@ As output, the script creates two folders, one for each state (prefusion and pos
 Carry out all-amino acid substitutions using the same script as alanine scanning (2.3_alanine_scanning.sh). We recommend performing all-amino acid substitutions in at least two independent runs to ensure a robust analysis. In step 5, the results are combined, and outliers are filtered out.
 
 
-### 5. Comparison of prefusion-vs-postfusion all-amino acid scanning ddg results and selection of positions for combinatorial design:
+### 5. Comparison of prefusion-vs-postfusion all-amino acid ddg results and selection of positions for combinatorial design:
 	
 	-5_analysis_all_aa_substitutions.py [-h] arg_file
 This script selects positions and substitutions for combinatorial design based on favorable ddG results for the prefusion state and neutral or destabilizing results for the postfusion state. The script takes as input an external file containing all arguments needed for running it. An example of this external file is found at */example/5.comparison_all_amino_acids_scan/alanine-scanning-based_approach/5_arg_hmpv*.
