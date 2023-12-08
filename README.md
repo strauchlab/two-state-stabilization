@@ -91,7 +91,7 @@ Alanine scanning must be carried out on every residue of pre- and postfusion str
 	-3.1_comparison_alanines.py [-h] arg_file 
 This script identifies target positions to redesign based on the stabilization of the prefusion over the postfusion state. It takes as input an external file containing all arguments needed for running the script. An example of this external file is found at */example/3.comparison_ala_scan/3.1/3.1_arg_hmpv*. 
 
-As output, the script creates two folders, one for each state (prefusion and postfusion), containing the mut_files required for all-amino acid scanning at the identified positions. Note that mut_files are written in rosetta numbering.
+As output, the script creates two folders, one for each state (prefusion and postfusion), containing the mut_files required for all-amino acid scanning at the identified target positions. Note that mut_files are written in rosetta numbering.
 
 	-3.2_mobile_regions.py [-h] arg_file
 If alanine scanning cannot identify significant designable spots, all-amino acid scanning can be carried out on all regions undergoing drastic conformational changes. This script identifies those mobile regions. It takes as input an external file containing all arguments needed for running the script. An example of this external file is found at */example/3.comparison_ala_scan/3.2/3.2_arg_hmpv*. 
