@@ -1,1 +1,1 @@
-
+4. In the exemplary results of all-amino acid scanning, we did not repeat the calculations for alanine substitutions. Instead, we gathered the alanine scanning results in the same folder. However, the code is now design to repeat this calculations so the results are all together in one file
