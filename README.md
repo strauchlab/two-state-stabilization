@@ -130,7 +130,7 @@ Run this script independently for alanine-scanning-based and mobile-regions-base
 These scripts must be executed twice - once to generate the designed sequences and once to run a control experiment without sequence design. The control experiment is used to define the reference energy as the selection process is based on energetic differences. The control resfile is called "resfile_control_pre", and the PSSM file would be the same as for the designed sequences.
 
 > [!NOTE]
-> The input PDB to the combinatorial design is one monomer of the PDB used in step #5 (PDB with single chain IDs for each protomer)
+> The input for combinatorial design is one monomer from the PDB used in step #5 (PDB with single chain IDs for each protomer).
 
 Independent jobs can be run in parallel to increase the number of designs while reducing the waiting time. Remember to save the results in different folders to avoid overwriting issues.
 
