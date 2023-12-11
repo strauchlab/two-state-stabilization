@@ -23,8 +23,6 @@
 
 ## Step-by-step scripts
 --------------------- 
-To avoid unexpected results, the input pdbs must be cleaned before starting the analysis. For this, use the script $Rosetta/tools/protein_tools/scripts/clean_pdb.py
-
 > [!TIP]
 > Additional information is available within each script in the codes folder.
 
@@ -47,6 +45,9 @@ Scripts used for SARS-CoV-2 S:
 Symmetry definition files are generated using the command line: "perl $Rosetta/main/source/src/apps/public/symmetry/make_symmdef_file.pl -m NCS -a A -i B -p INPUT.pdb > symmetry.symm"  
 
 Refer to [this tutorial](https://faculty.washington.edu/dimaio/files/rosetta_density_tutorial_aug18.pdf) (Example 2B: Symmetric refinement into cryoEM density) for more information on symmetry files.
+
+> [!NOTE]
+> To avoid unexpected results, the input PDBs must be cleaned before starting the analysis. For this, use the script $Rosetta/tools/protein_tools/scripts/clean_pdb.py
 
 Once the relaxation process is completed, select the best structure based on Rosetta energy, Molprobity scores, and agreement with density data. This chosen structure will serve as the input for step (2).
 
@@ -74,12 +75,12 @@ Scripts to perform alanine scanning:
 	-2.0_cart2.script
 	-2.1_pre-relax_cartesian.sh
 
-Select the best pdb for subsequent calculations based on the energy score.
+Select the best PDB for subsequent calculations based on the energy score.
 
 	Write mut_files:
 	-2.2_mut_file_alanine.py [-h] pdb ch 
  
-The -2.2_mut_file_alanine.py script takes as input the best pdb from the pre-relaxation step and the chain(s) ID of one protomer. An example of the command line to run the script is found at */example/2.alanine_scanning/prefusion/scanning/2.2_arg_hmpv*
+The -2.2_mut_file_alanine.py script takes as input the best PDB from the pre-relaxation step and the chain(s) ID of one protomer. An example of the command line to run the script is found at */example/2.alanine_scanning/prefusion/scanning/2.2_arg_hmpv*
 
 As output, the script creates a folder with the mut_files needed for alanine scanning. Note that mut_files are written in rosetta numbering.  
 
@@ -144,7 +145,7 @@ After finding sequences improving the prefusion energy, these sequences must be 
 The script takes as input an external file containing all arguments needed for running it. An example of this external file is found at */example/7.filter_prefusion/alanine-scanning-based_approach/7_arg_hmpv*
 
 > [!NOTE]
-> All pdbs with improved prefusion energy are transferred to a "selection_pre_E" folder, created within the prefusion results folder.
+> All PDBs with improved prefusion energy are transferred to a "selection_pre_E" folder, created within the prefusion results folder.
 
 ### 8. Identify sequences where prefusion improved and postfusion got worse. 
 
