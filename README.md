@@ -164,9 +164,9 @@ To summarize the results, the script generates three Excel files:
 > - Total energy scores must be normalized for a valid direct comparison between pre- and postfusion energies.
 > - When analyzing per-residue energy differences, negative scores indicate that the mutation confers greater stability than the native sequence in the specified structure. Therefore, seek mutations with negative scores in the prefusion state and positive scores in the postfusion state. All numbering refers to Rosetta numbering for the first protomer of the structure.
    
-If numerous mutations were introduced during the design process, the script also allows an optional filtering process based on per-residue energetic differences. Filtered mutations are output in the same format as the Excel files 2 and 3 (average per-residue energy differences). These filtered mutations can be used to repeat the design process (steps 6 to 8), reducing the number of target positions to redesign.
+In cases where multiple mutations were introduced, the script provides an optional filtering process based on per-residue energy differences. Filtered mutations are presented in the same format as Excel files 2 and 3 (average per-residue energy differences). These filtered mutations can guide a repeat of the design process (steps 6 to 8), reducing the number of target positions to redesign.
 
 > [!TIP]
-> - The final selection of mutation can be done using output energetic differences, analysis of formation or disruption of hydrogen bonds and salt bridges (which can be done with the function "energy_terms" available in this script), or by manual inspection of each mutation. 
-> - After selecting a few mutations, we recommend repeating the design process using only the selected positions (steps 6 to 8) to verify whether the selected mutations stabilize the prefusion structure over postfusion.
+> - The ultimate selection of mutations can be based on per-residue energetic differences, analysis of hydrogen bond and salt bridge formation or disruption (facilitated by the "energy_terms" function in this script), or manual inspection of each mutation.
+> - Once a few mutations are chosen, it is advisable to reiterate the design process using only the selected positions (steps 6 to 8) to confirm the stabilization of the prefusion structure over the postfusion state.
 
