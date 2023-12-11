@@ -147,22 +147,24 @@ After finding sequences improving the prefusion energy, these sequences must be 
 > [!NOTE]
 > All PDBs with improved prefusion energy are transferred to a "selection_pre_E" folder, created within the prefusion results folder. The PDBs are renamed based on their respective source folders.
 
-
-
 ### 8. Identify sequences where prefusion improved and postfusion got worse. 
 
 	-8_selection_by_energy.py [-h] arg_file
 
 This script identifies sequences improving prefusion energy but not favoring the postfusion structure. The script takes as input an external file containing all arguments needed for running it. An example of this external file is found at */example/8.selection/8_arg_hmpv*
 
-To summarize the results, the script generates three types of files:
-1. Excel file containing all mutations found in each candidate design, along with raw total energy scores for both pre- and postfusion structures. *Note: Normalize total energy scores for a valid direct comparison between pre and postfusion energies.*
-   
-3. CSV files detailing per-residue energy differences between the wild-type and pre- and postfusion structures at mutated positions. Negative scores indicate that the mutation confers greater stability than the native sequence in the specified structure. Seek mutations with negative scores in the prefusion state and positive scores in the postfusion state. All numbering refers to Rosetta numbering for the first protomer of the prefusion structure unless specified otherwise.
-   
-5. Excel file consolidating average per-residue energy differences across all designs. For designs with numerous mutations, assessing average per-residue energies aids in pinpointing mutations with potentially significant stabilizing effects.  
+> [!NOTE]
+> All PDBs with increased postfusion energy are transferred to a "selection_pre_E" folder, created within the postfusion results folder. The PDBs are renamed based on their respective source folders.
 
-Since not all mutations in a sequence contribute equally to stabilizing the prefusion structure or destabilizing postfusion, selecting only mutations with the most significant effects is recommended. 
+To summarize the results, the script generates two Excel files:s
+1. Excel file displaying mutated positions found in each candidate design, per-residue energy differences associated with each mutation (wild-type vs mutant), and raw total energy scores for both pre- and postfusion structures.
+   
+3. Excel file consolidating average per-residue energy differences across all designs. For designs with numerous mutations, assessing average per-residue energies aids in pinpointing mutations with potentially significant stabilizing effects.  
+
+> [!NOTE]
+> Total energy scores must be normalized for a valid direct comparison between pre and postfusion energies.
+> When analyzing per-residue energy differences, negative scores indicate that the mutation confers greater stability than the native sequence in the specified structure. Therefore, seek mutations with negative scores in the prefusion state and positive scores in the postfusion state. All numbering refers to Rosetta numbering for the first protomer of the structure.
+   
 
 This selection can be guided by the output energetic differences, analysis of formation or disruption of hydrogen bonds and salt bridges (which can be done with the function "energy_terms" available in this script), or by manual inspection of each mutation.  
 
