@@ -155,9 +155,16 @@ After finding sequences improving the prefusion energy, these sequences must be 
 
 This script identifies sequences improving prefusion energy but not favoring the postfusion structure. The script takes as input an external file containing all arguments needed for running it. An example of this external file is found at */example/8.selection/8_arg_hmpv*
 
-To summarize the results, the script generates two types of files, one containing all mutations present on each leading design and CSV files with per-residue energy differences between the pre- and postfusion structures at each mutated position. Negative scores indicate that the substitution is more stable than the native sequence in the specified structure. Therefore, look for mutations with negative scores in the prefusion state and positive scores in the postfusion state. All numbering refers to rosetta numbering for the first protomer of the prefusion structure (if it is not specified otherwise).
+To summarize the results, the script generates three types of files:
+1. Excel file containing all mutations found in each candidate design, along with raw total energy scores for both pre- and postfusion structures. *Note: Normalize energy scores for a valid direct comparison between pre and postfusion energies.*
+   
+3. CSV files detailing per-residue energy differences between the wild-type and pre- and postfusion structures at mutated positions. Negative scores indicate that the mutation confers greater stability than the native sequence in the specified structure. Seek mutations with negative scores in the prefusion state and positive scores in the postfusion state. All numbering refers to Rosetta numbering for the first protomer of the prefusion structure unless specified otherwise.
+   
+5. Excel file consolidating average per-residue energy differences across all designs. For designs with numerous mutations, assessing average per-residue energies aids in pinpointing mutations with potentially significant stabilizing effects.  
 
-Since not all mutations in a sequence contribute equally to stabilizing the prefusion structure or destabilizing postfusion, selecting only mutations with the most significant effects is recommended. This selection can be guided by the output energetic differences, analysis of formation or disruption of hydrogen bonds and salt bridges (which can be done with the function "energy_terms" available in this script), or by manual inspection of each mutation.  
+Since not all mutations in a sequence contribute equally to stabilizing the prefusion structure or destabilizing postfusion, selecting only mutations with the most significant effects is recommended. 
+
+This selection can be guided by the output energetic differences, analysis of formation or disruption of hydrogen bonds and salt bridges (which can be done with the function "energy_terms" available in this script), or by manual inspection of each mutation.  
 
 After selecting a few mutations, we recommend repeating the design process using only the selected positions (steps 6 to 8) to verify whether the selected mutations stabilize the prefusion structure over postfusion.
 
