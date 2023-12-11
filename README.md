@@ -156,8 +156,8 @@ This script identifies sequences improving prefusion energy but not favoring the
 > [!NOTE]
 > All PDBs with increased postfusion energy are transferred to a "selection_pre_E" folder, created within the postfusion results folder. The PDBs are renamed based on their respective source folders.
 
-To summarize the results, the script generates two Excel files:s
-1. Excel file displaying mutated positions found in each candidate design, per-residue energy differences associated with each mutation (wild-type vs mutant), and raw total energy scores for both pre- and postfusion structures.
+To summarize the results, the script generates two Excel files:
+1. ***Excel file 1*** displays mutated positions found in each candidate design, per-residue energy differences associated with each mutation (wild-type vs mutant), and raw total energy scores for both pre- and postfusion structures.
    
 3. Excel file consolidating average per-residue energy differences across all designs. For designs with numerous mutations, assessing average per-residue energies aids in pinpointing mutations with potentially significant stabilizing effects.  
 
