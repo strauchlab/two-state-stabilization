@@ -102,9 +102,8 @@ If alanine scanning cannot identify significant designable spots, all-amino acid
 As output, the script creates two folders, one for each state (prefusion and postfusion), containing the mut_files to perform all-amino acid scanning at highly mobile regions. 
 
 > [!NOTE]
-> **1.** Input PDBs should be aligned prior to running the script.
-> 
-> **2.** Steps 4-8 are run independently for alanine-scanning-based and mobile-regions-based approaches.
+> - Input PDBs should be aligned prior to running the script. 
+> - Steps 4-8 are run independently for alanine-scanning-based and mobile-regions-based approaches.
 
 ### 4. Perform all-amino acid substitutions with the mut_files generated in step 3. 
 Carry out all-amino acid substitutions using the same script as alanine scanning (2.3_alanine_scanning.sh). We recommend performing all-amino acid substitutions in at least two independent runs to ensure a robust analysis. In step 5, the results are combined, and outliers are filtered out.
