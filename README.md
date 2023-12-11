@@ -112,7 +112,7 @@ Carry out all-amino acid substitutions using the same script as alanine scanning
 This script selects positions and substitutions for combinatorial design based on favorable ddG results for the prefusion state and neutral or destabilizing results for the postfusion state. The script takes as input an external file containing all arguments needed for running it. An example of this external file is found at */example/5.comparison_all_amino_acids_scan/alanine-scanning-based_approach/5_arg_hmpv*.
 
 > [!IMPORTANT]
-> In contrast to step #2, where distinct chain IDs were required within the same protomer (for discontinuous segments), step #5 necessitates a single chain ID for each protomer. This ensures accurate identification of surface-exposed residues, essential for discarding certain positions during the redesign process.
+> In contrast to step #2, where distinct chain IDs were required within the same protomer (for discontinuous segments), step #5 necessitates a single chain ID for each protomer. This ensures accurate identification of surface-exposed residues, essential for discarding certain positions during the redesign process. 
 
 The script outputs a "combinatorial_design" folder. This folder contains the PSSM-like file for prefusion and postfusion, a resfile file for redesigning the prefusion structure, and a control resfile (prefusion).  
 
@@ -125,6 +125,9 @@ Run this script independently for alanine-scanning-based and mobile-regions-base
 	-6.2_combinatorial_design.sh
 	
 These scripts must be executed twice - once to generate the designed sequences and once to run a control experiment without sequence design. The control experiment is used to define the reference energy as the selection process is based on energetic differences. The control resfile is called "resfile_control_pre", and the PSSM file would be the same as for the designed sequences.
+
+> [!NOTE]
+> The input PDB to the combinatorial design is one monomer of the PDB used in step #5 (PDB with single chain IDs for each protomer)
 
 Independent jobs can be run in parallel to increase the number of designs while reducing the waiting time. Remember to save the results in different folders to avoid overwriting issues.
 
