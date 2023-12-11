@@ -159,13 +159,13 @@ This script identifies sequences improving prefusion energy but not favoring the
 To summarize the results, the script generates three Excel files:
 1. ***Excel file 1*** displays mutated positions in candidate designs, per-residue energy differences associated with each mutation (wild-type vs mutant), and raw total energy scores for the design in both pre- and postfusion states.
    
-3. ***Excel file 2 and 3*** consolidate average per-residue energy differences across all designs in both pre- and postfusion states. For designs with numerous mutations, assessing average per-residue energies aids in pinpointing mutations more likely to have a significant stabilizing effect.  
+3. ***Excel files 2 and 3*** consolidate average per-residue energy differences across all designs in both pre- and postfusion states. For designs with numerous mutations, assessing average per-residue energies aids in pinpointing mutations more likely to have a significant stabilizing effect.  
 
 > [!NOTE]
-> Total energy scores must be normalized for a valid direct comparison between pre- and postfusion energies.
-> When analyzing per-residue energy differences, negative scores indicate that the mutation confers greater stability than the native sequence in the specified structure. Therefore, seek mutations with negative scores in the prefusion state and positive scores in the postfusion state. All numbering refers to Rosetta numbering for the first protomer of the structure.
+> - Total energy scores must be normalized for a valid direct comparison between pre- and postfusion energies.
+> - When analyzing per-residue energy differences, negative scores indicate that the mutation confers greater stability than the native sequence in the specified structure. Therefore, seek mutations with negative scores in the prefusion state and positive scores in the postfusion state. All numbering refers to Rosetta numbering for the first protomer of the structure.
    
-If numerous mutations were introduced during the design process, this script also performs a filtering process based on per-residue energetic differences. The filtered mutations are output in 
+If numerous mutations were introduced during the design process, this script also performs a filtering process based on per-residue energetic differences. The filtered mutations are output in the same format as the Excel files 2 and 3 (average per-residue energy differences). 
 
 
 
