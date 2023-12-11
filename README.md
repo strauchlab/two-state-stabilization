@@ -26,7 +26,7 @@
 To avoid unexpected results, the input pdbs must be cleaned before starting the analysis. For this, use the script $Rosetta/tools/protein_tools/scripts/clean_pdb.py
 
 > [!TIP]
-> Additional information  is available within each script located in the codes folder.
+> Additional information is available within each script in the codes folder.
 
 ### 1. Structural relaxation of both pre- and postfusion structures guided by density data: 
 
