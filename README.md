@@ -111,6 +111,9 @@ Carry out all-amino acid substitutions using the same script as alanine scanning
 	-5_analysis_all_aa_substitutions.py [-h] arg_file
 This script selects positions and substitutions for combinatorial design based on favorable ddG results for the prefusion state and neutral or destabilizing results for the postfusion state. The script takes as input an external file containing all arguments needed for running it. An example of this external file is found at */example/5.comparison_all_amino_acids_scan/alanine-scanning-based_approach/5_arg_hmpv*.
 
+> [!IMPORTANT]
+> In contrast to step #2, where distinct chain IDs were required within the same protomer (for discontinuous segments), step #5 necessitates a single chain ID for each protomer. This ensures accurate identification of surface-exposed residues, essential for discarding certain positions during the redesign process.
+
 The script outputs a "combinatorial_design" folder. This folder contains the PSSM-like file for prefusion and postfusion, a resfile file for redesigning the prefusion structure, and a control resfile (prefusion).  
 
 Run this script independently for alanine-scanning-based and mobile-regions-based approaches.
