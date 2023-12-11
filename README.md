@@ -156,15 +156,18 @@ This script identifies sequences improving prefusion energy but not favoring the
 > [!NOTE]
 > All PDBs with increased postfusion energy are transferred to a "selection_pre_E" folder, created within the postfusion results folder. The PDBs are renamed based on their respective source folders.
 
-To summarize the results, the script generates two Excel files:
-1. ***Excel file 1*** displays mutated positions found in each candidate design, per-residue energy differences associated with each mutation (wild-type vs mutant), and raw total energy scores for both pre- and postfusion structures.
+To summarize the results, the script generates three Excel files:
+1. ***Excel file 1*** displays mutated positions in candidate designs, per-residue energy differences associated with each mutation (wild-type vs mutant), and raw total energy scores for the design in both pre- and postfusion states.
    
-3. Excel file consolidating average per-residue energy differences across all designs. For designs with numerous mutations, assessing average per-residue energies aids in pinpointing mutations with potentially significant stabilizing effects.  
+3. ***Excel file 2 and 3*** consolidate average per-residue energy differences across all designs in both pre- and postfusion states. For designs with numerous mutations, assessing average per-residue energies aids in pinpointing mutations more likely to have a significant stabilizing effect.  
 
 > [!NOTE]
-> Total energy scores must be normalized for a valid direct comparison between pre and postfusion energies.
+> Total energy scores must be normalized for a valid direct comparison between pre- and postfusion energies.
 > When analyzing per-residue energy differences, negative scores indicate that the mutation confers greater stability than the native sequence in the specified structure. Therefore, seek mutations with negative scores in the prefusion state and positive scores in the postfusion state. All numbering refers to Rosetta numbering for the first protomer of the structure.
    
+If numerous mutations were introduced during the design process, this script also performs a filtering process based on per-residue energetic differences. The filtered mutations are output in 
+
+
 
 This selection can be guided by the output energetic differences, analysis of formation or disruption of hydrogen bonds and salt bridges (which can be done with the function "energy_terms" available in this script), or by manual inspection of each mutation.  
 
