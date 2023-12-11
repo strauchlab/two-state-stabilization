@@ -102,12 +102,11 @@ If alanine scanning cannot identify significant designable spots, all-amino acid
 As output, the script creates two folders, one for each state (prefusion and postfusion), containing the mut_files to perform all-amino acid scanning at highly mobile regions. 
 
 > [!NOTE]
-> Input PDBs should be aligned prior to running the script.
-
+> **1.** Input PDBs should be aligned prior to running the script.
+> **2.** Steps 4-8 are run independently for alanine-scanning-based and mobile-regions-based approaches.
 
 ### 4. Perform all-amino acid substitutions with the mut_files generated in step 3. 
 Carry out all-amino acid substitutions using the same script as alanine scanning (2.3_alanine_scanning.sh). We recommend performing all-amino acid substitutions in at least two independent runs to ensure a robust analysis. In step 5, the results are combined, and outliers are filtered out.
-
 
 ### 5. Comparison of prefusion-vs-postfusion all-amino acid ddg results and selection of positions for combinatorial design:
 	
@@ -119,7 +118,6 @@ This script selects positions and substitutions for combinatorial design based o
 
 The script outputs a "combinatorial_design" folder. This folder contains the PSSM-like file for prefusion and postfusion, a resfile file for redesigning the prefusion structure, and a control resfile (prefusion).  
 
-Run this script independently for alanine-scanning-based and mobile-regions-based approaches.
 
 ### 6. Combinatorial design on prefusion state. 
 
