@@ -137,13 +137,17 @@ Independent jobs can be run in parallel to increase the number of designs while 
 ### 7. Filter out designed sequences that are repeated and identify sequences improving the prefusion energy compared to the control (wild-type sequence)
 
 	-7_filter_prefusion.py [-h] arg_file
+ 
+The script takes as input an external file containing all arguments needed for running it. An example of this external file is found at */example/7.filter_prefusion/alanine-scanning-based_approach/7_arg_hmpv*
 
 After finding sequences improving the prefusion energy, these sequences must be modeled in the postfusion state to determine which conformation is more favored by the designed sequence. Therefore, this script identifies the prefusion candidate sequences and generates individual resfiles to model the sequence in the postfusion state. A control postfusion resfile is also output to perform the control experiment, as explained in step (6). The resfiles are split into several folders within the "postfusion_designs" folder. The PSSM files to model the postfusion structures were obtained in step (5).
 
-The script takes as input an external file containing all arguments needed for running it. An example of this external file is found at */example/7.filter_prefusion/alanine-scanning-based_approach/7_arg_hmpv*
+**The postfusion sequences are modeled using scripts in step #6.**
 
 > [!NOTE]
-> All PDBs with improved prefusion energy are transferred to a "selection_pre_E" folder, created within the prefusion results folder.
+> All PDBs with improved prefusion energy are transferred to a "selection_pre_E" folder, created within the prefusion results folder. The PDBs are renamed based on their respective source folders.
+
+
 
 ### 8. Identify sequences where prefusion improved and postfusion got worse. 
 
