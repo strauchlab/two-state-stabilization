@@ -27,6 +27,8 @@
 > Additional information is available within each script in the codes folder.
 
 ### 1. Structural relaxation of both pre- and postfusion structures guided by density data: 
+> [!NOTE]
+> To avoid unexpected results, the input PDBs must be cleaned before starting the analysis. For this, use the script $Rosetta/tools/protein_tools/scripts/clean_pdb.py
 
 Script used for RSV F and hMPV F:
 
@@ -45,9 +47,6 @@ Scripts used for SARS-CoV-2 S:
 Symmetry definition files are generated using the command line: "perl $Rosetta/main/source/src/apps/public/symmetry/make_symmdef_file.pl -m NCS -a A -i B -p INPUT.pdb > symmetry.symm"  
 
 Refer to [this tutorial](https://faculty.washington.edu/dimaio/files/rosetta_density_tutorial_aug18.pdf) (Example 2B: Symmetric refinement into cryoEM density) for more information on symmetry files.
-
-> [!NOTE]
-> To avoid unexpected results, the input PDBs must be cleaned before starting the analysis. For this, use the script $Rosetta/tools/protein_tools/scripts/clean_pdb.py
 
 Once the relaxation process is completed, select the best structure based on Rosetta energy, Molprobity scores, and agreement with density data. This chosen structure will serve as the input for step (2).
 
