@@ -168,5 +168,5 @@ In cases where multiple mutations were introduced, the script provides an option
 
 > [!TIP]
 > - The ultimate selection of mutations can be based on per-residue energetic differences, analysis of hydrogen bonds or protein packing (facilitated by the functions "per_resi_sidechain_hbonds_and_energy" and "per_resi_packing_score" provided in this script. An example on how to run the functions is found at the end of the script), or manual inspection of each mutation.
-> - Once a few mutations are chosen, it is advisable to reiterate the design process (steps 6 to 8) using only the selected positions to confirm the stabilization of the prefusion structure over the postfusion state.
+> - Once a few mutations are chosen, it is advisable to reiterate the design process (steps 6 to 8) with the selected positions to confirm the stabilization of the prefusion structure over the postfusion state.
 
