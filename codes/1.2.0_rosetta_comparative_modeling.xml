@@ -1,0 +1,35 @@
+#threaded PDB files are obtained following the protocol available at https://www.rosettacommons.org/docs/latest/application_documentation/structure_prediction/RosettaCM
+
+<ROSETTASCRIPTS>
+    <TASKOPERATIONS>
+    </TASKOPERATIONS>
+    <SCOREFXNS>
+        <ScoreFunction name="stage1" weights="score3" symmetric="1">
+            <Reweight scoretype="atom_pair_constraint" weight="0.1"/>
+	    <Reweight scoretype="elec_dens_fast" weight="10"/>
+        </ScoreFunction>
+        <ScoreFunction name="stage2" weights="score4_smooth_cart" symmetric="1">
+            <Reweight scoretype="atom_pair_constraint" weight="0.1"/>
+	    <Reweight scoretype="elec_dens_fast" weight="10"/>
+        </ScoreFunction>
+        <ScoreFunction name="fullatom" weights="beta_cart" symmetric="1">
+            <Reweight scoretype="atom_pair_constraint" weight="0.1"/>
+	    <Reweight scoretype="elec_dens_fast" weight="45"/>
+	    <Set scale_sc_dens_byres="R:0.76,K:0.76,E:0.76,D:0.76,M:0.76,C:0.81,Q:0.81,H:0.81,N:0.81,T:0.81,S:0.81,Y:0.88,W:0.88,A:0.88,F:0.88,P:0.88,I:0.88,L:0.88,V:0.88"/>
+        </ScoreFunction>
+    </SCOREFXNS>
+    <FILTERS>
+    </FILTERS>
+    <MOVERS>
+
+        <Hybridize name="hybridize" stage1_scorefxn="stage1" stage2_scorefxn="stage2" fa_scorefxn="fullatom" batch="1" stage1_increase_cycles="1.0" stage2_increase_cycles="1.0">
+            <Template pdb="template1__thread.pdb" cst_file="AUTO" weight="1.0" symmdef="template1.symm" />
+            <Template pdb="template2__thread.pdb" cst_file="AUTO" weight="1.0" symmdef="template2.symm" />
+        </Hybridize>
+    </MOVERS>
+    <APPLY_TO_POSE>
+    </APPLY_TO_POSE>
+    <PROTOCOLS>
+        <Add mover="hybridize"/>
+    </PROTOCOLS>
+</ROSETTASCRIPTS>
