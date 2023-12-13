@@ -167,6 +167,6 @@ To summarize the results, the script generates three Excel files:
 In cases where multiple mutations were introduced, the script provides an optional filtering process based on per-residue energy differences. Filtered mutations are presented in the same format as Excel files 2 and 3 (average per-residue energy differences). These filtered mutations can guide a repeat of the design process (steps 6 to 8), reducing the number of target positions to redesign.
 
 > [!TIP]
-> - The ultimate selection of mutations can be based on per-residue energetic differences, analysis of hydrogen bond and salt bridge formation or disruption (facilitated by the "energy_terms" function in this script), or manual inspection of each mutation.
-> - Once a few mutations are chosen, it is advisable to reiterate the design process using only the selected positions (steps 6 to 8) to confirm the stabilization of the prefusion structure over the postfusion state.
+> - The ultimate selection of mutations can be based on per-residue energetic differences, analysis of hydrogen bonds or protein packing (facilitated by the functions "per_resi_sidechain_hbonds_and_energy" and "per_resi_packing_score" provided in this script. An example on how to run the functions is found at the end of the script), or manual inspection of each mutation.
+> - Once a few mutations are chosen, it is advisable to reiterate the design process (steps 6 to 8) using only the selected positions to confirm the stabilization of the prefusion structure over the postfusion state.
 
