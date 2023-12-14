@@ -1,0 +1,32 @@
+post_dir = /example/4.all_amino_acids_scanning/alanine-scanning-based_approach/postfusion/example_results
+post_ddg_folder = cartesian_all1,cartesian_all2,cartesian_all3,cartesian_all4,cartesian_all5
+pdb_post = /example/5.comparison_all_amino_acids_scan/alanine-scanning-based_approach/5l1x_INPUT_0005_AB_0007_ABC.pdb
+post_monomer_ch = A
+pre_dir= /example/4.all_amino_acids_scanning/alanine-scanning-based_approach/prefusion/example_results
+pre_ddg_folder = cartesian_all1,cartesian_all2,cartesian_all3,cartesian_all4,cartesian_all5
+pdb_pre = /example/5.comparison_all_amino_acids_scan/alanine-scanning-based_approach/5wb0_INPUT_0001_AB_0007_ABC.pdb
+pre_monomer_ch = A 
+alignment = /example/5.comparison_all_amino_acids_scan/alanine-scanning-based_approach/hmpv_aligned.fasta
+post_name_alignment= post
+pre_name_alignment= pre
+fusion_peptide = 73-84
+discard_surf_resi = True
+
+
+############# Arguments description
+## post_dir = Directory containing folder(s) with ddg results for postfusion.
+## post_ala_folder = Comma-separated list of folder name(s) with ddg results for postfusion. The folder(s) must be in the post_dir.
+## pdb_post = File name or directory of postfusion pdb used for ddg calculations (trimer). Ensure that each protomer has a single chain ID.
+## post_monomer_ch = Chain ID of the postfusion protomer that will be input into the combinatorial design.
+## pre_dir= Directory containing folder(s) with ddg results for prefusion.
+## pre_ala_folder = Comma-separated list of folder name(s) with ddg results for prefusion. The folder(s) must be in the pre_dir.
+## pdb_pre = File name or directory of prefusion pdb used for ddg calculations (trimer). Ensure that each protomer has a single chain ID.
+## pre_monomer_ch = Chain ID of the prefusion protomer that will be input into the combinatorial design.
+## alignment = File name or directory of sequence alignment between prefusion and postfusion (the sequences should contain ONLY amino acids found in the PDB structure (monomer sequence). FASTA format.
+## post_name_alignment = Name of postfusion protein in alignment file.
+## pre_name_alignment = Name of prefusion protein in alignment file.
+## fusion_peptide = Positions (range) corresponding to the fusion peptide (prefusion structure). Make sure these residue positions are unique, i.e. they do not point out to other parts of the protein that are not the fusion peptide.
+## discard_surf_resi = Whether to discard or not residues that are surface exposed in both pre and postfusion structures.
+#############
+
+

@@ -1,0 +1,33 @@
+post_dir = /example/2.alanine_scanning/postfusion/scanning/output/example_results
+post_ala_folder = cartesian_alanine1,cartesian_alanine2,cartesian_alanine3,cartesian_alanine4,cartesian_alanine5
+pdb_post = /example/2.alanine_scanning/postfusion/scanning/5l1x_INPUT_0005_AB_0007.pdb
+post_monomer_ch = AB 
+pre_dir= /example/2.alanine_scanning/prefusion/scanning/output/example_results
+pre_ala_folder = cartesian_alanine1,cartesian_alanine2,cartesian_alanine3,cartesian_alanine4,cartesian_alanine5
+pdb_pre = /example/2.alanine_scanning/prefusion/scanning/5wb0_INPUT_0001_AB_0007.pdb
+pre_monomer_ch = AB 
+alignment = /example/3.comparison_ala_scan/3.1/hmpv_aligned.fasta
+post_name_alignment= post
+pre_name_alignment= pre
+fusion_peptide = 73-84
+
+
+############# Arguments description
+## post_dir = Directory containing the folder with ddg results for postfusion.
+## post_ala_folder = Comma-separated list of folder name(s) with ddg results for postfusion. The folder(s) must be in the post_dir.
+## pdb_post = File name or directory of postfusion pdb used for ddg calculations.
+## post_monomer_ch = Chain(s) ID of first postfusion protomer.
+## pre_dir= Directory containing the folder with ddg results for prefusion.
+## pre_ala_folder = Comma-separated list of folder(s) name(s) with ddg results for prefusion. The folder(s) must be in the pre_dir.
+## pdb_pre = File name or directory of prefusion pdb used for ddg calculations.
+## pre_monomer_ch = Chain(s) ID of first prefusion protomer.
+## alignment = File name or directory of sequence alignment between prefusion and postfusion (the sequences should contain ONLY amino acids found in the PDB structure (monomer sequence). FASTA format.
+## post_name_alignment = Name of postfusion protein in alignment file.
+## pre_name_alignment = Name of prefusion protein in alignment file.
+## fusion_peptide = Positions (range) corresponding to the fusion peptide (prefusion structure). Make sure these residue positions are unique, i.e. they do not point out to other parts of the protein that are not the fusion peptide.
+#############
+
+
+
+
+

@@ -1,0 +1,29 @@
+pre_results_dir = /example/6.combinatorial_design/alanine-scanning-based_approach/example_results/designs/selection_pre_E
+pre_control_pdb = /example/6.combinatorial_design/alanine-scanning-based_approach/example_results/control/5wb0_INPUT_0001_AB_0007_ABC_A_0001.pdb
+post_results_dir = /example/7.filter_prefusion/alanine-scanning-based_approach/output/example_results_upon_postfusion_modeling/designs
+post_control_pdb = /example/7.filter_prefusion/alanine-scanning-based_approach/output/example_results_upon_postfusion_modeling/control/5l1x_INPUT_0005_AB_0007_ABC_A_0001.pdb
+pre_monomer_ch = A
+post_monomer_ch = A
+alignment = /example/5.comparison_all_amino_acids_scan/alanine-scanning-based_approach/hmpv_aligned.fasta
+post_name_alignment= post
+pre_name_alignment= pre
+filter= True
+
+
+############# Arguments description
+## pre_results_dir = Directory containing the candidate sequences for the prefusion state (filtered by energy---"selection_pre_E"). 
+## pre_control_pdb = PDB directory of prefusion control structure (relaxed but not designed sequence).
+## post_results_dir = Directory containing folder(s) with combinatorial design results for the postfusion state.
+## post_control_pdb = PDB directory of postfusion control structure (relaxed but not designed sequence).
+## pre_monomer_ch = Chain ID of the prefusion protomer used in the combinatorial design.
+## post_monomer_ch = Chain ID of the postfusion protomer used in the combinatorial design.
+## alignment = File name or directory of sequence alignment between prefusion and postfusion (the sequences should contain ONLY amino acids found in the PDB structure (monomer sequence). FASTA format.
+## post_name_alignment = Name of postfusion protein in alignment file.
+## pre_name_alignment = Name of prefusion protein in alignment file.
+## filter= Whether to filter mutations based on per-residue energy differences.
+#############
+
+
+
+
+

@@ -1,0 +1,29 @@
+results_dir = /example/6.combinatorial_design/alanine-scanning-based_approach/example_results/designs
+results_folder = repetition1,repetition2,repetition3,repetition4,repetition5,repetition6,repetition7,repetition8,repetition9,repetition10,repetition11,repetition12,repetition13,repetition14,repetition15
+resfile_pre = /example/hmpv/6.combinatorial_design/alanine-scanning-based_approach/designs/resfile_pre
+control_dir = /example/hmpv/6.combinatorial_design/alanine-scanning-based_approach/example_results/control/5wb0_INPUT_0001_AB_0007_ABC_A_0001.pdb
+pdb_post = /example/hmpv/5.comparison_all_amino_acids_scan/alanine-scanning-based_approach/5l1x_INPUT_0005_AB_0007_ABC.pdb
+post_monomer_ch = A
+pdb_pre = /example/hmpv/5.comparison_all_amino_acids_scan/alanine-scanning-based_approach/5wb0_INPUT_0001_AB_0007_ABC.pdb
+pre_monomer_ch = A
+alignment = /example/hmpv/5.comparison_all_amino_acids_scan/alanine-scanning-based_approach/hmpv_aligned.fasta
+post_name_alignment= post
+pre_name_alignment= pre
+
+
+
+############# Arguments description
+## results_dir = Directory containing folder(s) with combinatorial design results for the prefusion state. 
+## results_folder = Comma-separated list of folder name(s) with designed prefusion sequences. The folder(s) must be in the results_dir.
+## resfile_pre = File name or directory of resfile used to design prefusion sequences.
+## control_dir = PDB directory of control prefusion structure (relaxed but not designed sequence).
+## pdb_post = File name or directory of postfusion pdb.
+## post_monomer_ch = Chain ID of the postfusion protomer that will be input into the combinatorial design.
+## pdb_pre = File name or directory of prefusion pdb (not control pdb).
+## pre_monomer_ch = Chain ID of the prefusion protomer used in the combinatorial design.
+## alignment = File name or directory of sequence alignment between prefusion and postfusion (the sequences should contain ONLY amino acids found in the PDB structure (monomer sequence). FASTA format.
+## post_name_alignment = Name of postfusion protein in alignment file.
+## pre_name_alignment = Name of prefusion protein in alignment file.
+#############
+
+

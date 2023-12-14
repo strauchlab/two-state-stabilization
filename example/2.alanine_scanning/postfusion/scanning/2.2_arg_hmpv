@@ -1,0 +1,7 @@
+The script can be run from the command line as:
+
+python3.7 2.2_mut_file_alanine.py 5l1x_INPUT_0005_AB_0007.pdb AB 
+
+
+## "5l1x_INPUT_0005_AB_0007.pdb" corresponds to the best pdb (trimeric conformation) obtained from the pre-relaxation step.
+## "AB" are the chain IDs of the first monomeric unit of the protein.
