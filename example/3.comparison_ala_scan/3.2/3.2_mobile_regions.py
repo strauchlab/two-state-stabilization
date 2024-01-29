@@ -243,7 +243,7 @@ def mut_file_trimer(positions, seq, path_output, alanine=False, all_aa=True, inc
 ################################################
 root = os.getcwd()    
 ### Command line arguments 
-parser = argparse.ArgumentParser(description='Finding highly movable regions')
+parser = argparse.ArgumentParser(description='Finding highly mobile regions')
 parser.add_argument('arg_file', help = "File containing all input arguments")
 args = parser.parse_args()
 # input arguments from arg_file
