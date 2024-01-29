@@ -469,7 +469,7 @@ def resfile_control(root, positions, results_all, name_resfile="resfile_control"
 ###############################################################################
 root = os.getcwd()   
 ### Command line arguments 
-parser = argparse.ArgumentParser(description='Comparison ddg alanine scanning prefusion vs postfusion')
+parser = argparse.ArgumentParser(description='Comparison ddg all amino acids scanning prefusion vs postfusion')
 parser.add_argument('arg_file', help = "File containing all input arguments")
 args = parser.parse_args()
 # Input arguments from arg_file
