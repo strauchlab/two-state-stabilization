@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Sep 10 09:50:26 2020
-
-@author: karen
+@author: Karen J. Gonzalez
 """
 import os
 import pandas as pd
@@ -186,7 +184,7 @@ def per_resi_packing_score(pose, repetitions=3):
 ############################################################################### 
 root = os.getcwd()   
 ### Command line arguments 
-parser = argparse.ArgumentParser(description='Identification of designs improving prefusion over postfusion energy')
+parser = argparse.ArgumentParser(description= 'Selection of candidate prefusion designs')
 parser.add_argument('arg_file', help = "File containing all input arguments")
 args = parser.parse_args()
 # Input arguments from arg_file
